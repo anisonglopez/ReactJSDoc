@@ -87,7 +87,7 @@ import * as abc from './utility.js'
 //  ตัวอย่าง import * นี้ จะพบตัวอย่างการใน app.tsx
 ```
 
-4. Classes
+### 4. Classes
 Classes is a blueprint for javaScript object.  Class เปรียบเสมือนกับ blueprint หรือแบบพิมพ์เขียว ที่สามารถนำไปสร้างเป็นสิ่งของ( object ) ตาม  blueprint นั้น ๆ โดยภายใน class เรานั้น จะมีการตั้งค่าเริ่มต้นหรือ constructor เพื่อให้เป็นการทำงานเริ่มต้นของการสร้าง object หนึ่ง หน้าตาในการเรียกใช้งานจะคล้ายๆกับ การประกาศเรียกใช้ Function 
 
 ![alt text](https://samanthaming.gumlet.io/tidbits/39-es6-classes.jpg.gz)
@@ -139,6 +139,56 @@ person.printGender();
 //  "male"
 ```
 
-5. 
+### 5. Classes, Properties, Methods
+
+### 6. The Spread & Rest Operator
+- Rest parameter คือ การรวบรวม Values ที่เหลือทั้งหมดไปไว้ Array สรุป (values -> array)
+- Spread operator คือ การดำเนินแยกค่าใน Arrays ออกเป็น Values สรุป (array -> values)
+![alt text](https://i.ytimg.com/vi/qMlReipXP5A/maxresdefault.jpg)
+## Rest parameter
+```JS
+// REST example 1
+function abc(a, b, ...z) {
+  console.log(a, ' ', b); // hi-ya hi
+  console.log(z); // ["hey", "hello", "howdy", "hullo"]
+  console.log(z[0]); // hey
+  console.log(z.length); // 4
+}
+abc("hi-ya", "hi", "hey", "hello", "howdy", "hullo");
+// REST example 2
+const [c, ...m] = [1,2,3,4,5];
+console.log(c); // 1
+console.log(m); // [2,3,4,5]
+```
+## Spread operators
+```JS
+// Spread  example 1
+const arr = ["b", "c", "d"];
+const arr2 = ["a", ...arr];
+console.log(arr2);  // ["a", "b", "c", "d"]
+// Spread  example 2
+const params = [ "hello", true, 7 ];
+const other = [ 1, 2, ...params ]; // [1,2,"hello", true, 7]
+// มีค่าเท่ากับ
+const other = [1, 2].concat(params); // [1,2,"hello", true, 7]
+// Rest Parameter vs. Spread operator (การหาผลรวม)
+// For Spread operator
+function sum1(x, y, z) {
+  return x + y + z;
+}
+// For Rest Parameter
+function sum2(...arr) {
+  return arr[0] + arr[1] + arr[2];
+  // used reduce for dynamic
+  // return a.reduce((value, sum) => sum + value)
+}
+// input values
+const numbers = [1, 2, 3, 4, 5];
+// Result of Spread operator
+console.log(sum1(...numbers)); // 6
+// Result of Rest Parameter
+console.log(sum2(1, 2, 3, 4, 5)); // 6
+```
+
 
 
