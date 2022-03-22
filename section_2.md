@@ -145,7 +145,7 @@ person.printGender();
 - Rest parameter คือ การรวบรวม Values ที่เหลือทั้งหมดไปไว้ Array สรุป (values -> array)
 - Spread operator คือ การดำเนินแยกค่าใน Arrays ออกเป็น Values สรุป (array -> values)
 ![alt text](https://i.ytimg.com/vi/qMlReipXP5A/maxresdefault.jpg)
-## Rest parameter
+### Rest parameter
 ```JS
 // REST example 1
 function abc(a, b, ...z) {
@@ -160,7 +160,7 @@ const [c, ...m] = [1,2,3,4,5];
 console.log(c); // 1
 console.log(m); // [2,3,4,5]
 ```
-## Spread operators
+### Spread operators
 ```JS
 // Spread  example 1
 const arr = ["b", "c", "d"];
@@ -189,6 +189,46 @@ console.log(sum1(...numbers)); // 6
 // Result of Rest Parameter
 console.log(sum2(1, 2, 3, 4, 5)); // 6
 ```
+
+### Destructuring
+Destructuring allows you to easily extract array elements or object properties and store them in variables. Array destructuring
+```JS
+const numbers = [1, 2, 3];
+[num1, , num3] = numbers;
+console.log(num1, num3)
+// Output = 1, 3
+```
+
+### Reference and Primitive Refresher
+```JS
+const number = 1;
+const num2 = number;
+console.log(num2)
+//  Output = 1
+```
+```JS
+const person = {
+    name: 'Max';
+};
+const SecondPerson = person;
+//  SecondPerson ถูกเก็บลง memmory แล้ว
+person.name = 'NewName';
+console.log(SecondPerson)
+// Output = NewName แทน ทั้ง ๆ ที่ควรจะเป็น Max ตามความเข้าใจ
+```
+ัดังนั้นเทคนิคการ Copy ตัวแปร และนำมาใช้ใหม่ และไม่ให้ค่าที่เรียกใช้ทับกับตัวแปรเดิม ให้เขียนดังนี้
+```JS
+const person = {
+    name: 'Max';
+};
+const SecondPerson = person;
+//  SecondPerson ถูกเก็บลง memmory แล้ว
+person.name = 'NewName';
+console.log(SecondPerson)
+//  Output = 'Max'
+```
+
+
 
 
 
